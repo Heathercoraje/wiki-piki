@@ -8,5 +8,5 @@ Fun project with wikipedia api
 + Code modulization
 
 ### Stretch functions 
-+ Drop-down menu for lanauge 
++ Drop-down menu for switching languages 
 + Checkbox to include or exclude types of search results (article, photo, people, etc) 
