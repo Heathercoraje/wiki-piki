@@ -1,0 +1,19 @@
+{
+  "name": "wiki-piki",
+  "version": "1.0.0",
+  "description": "FreeCodeCamp Intermediate FE 3rd",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/test.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Heathercoraje/wiki-piki.git"
+  },
+  "author": "heathercoraje",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Heathercoraje/wiki-piki/issues"
+  },
+  "homepage": "https://github.com/Heathercoraje/wiki-piki#readme"
+}
