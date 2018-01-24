@@ -9,4 +9,4 @@ Fun project with wikipedia api
 
 ### Stretch functions 
 + Drop-down menu for switching languages 
-+ Checkbox to include or exclude types of search results (article, photo, people, etc) 
+
