@@ -1,5 +1,5 @@
 (function allInOne() {
-  var inputForm = document.getElementById('searchTerm');
+  var inputForm = document.getElementById('inputForm');
   var searchButton = document.getElementById('searchButton');
 
   inputForm.addEventListener('input', function () {
@@ -11,24 +11,30 @@
     return
   });
 
-  inputForm.addEventListener('onkeydown', function() {
-    if (event.keyCode==13) {
-      searchClick();
+  inputForm.addEventListener('keydown', function() {
+    if (event.keyCode == 13) {
+      console.log('enterkey pressed: execute function');
+      var keyword = inputForm.value;
+      searchClick(inputForm);
     }
     return
   });
 
   searchButton.addEventListener('click', function () {
-    searchClick(searchTerm);
+    searchClick(inputForm);
   });
 
-  function searchClick(searchTerm){
-    var searchBox = document.getElementById('searchBox').className = "active"
-    var searchTerm = document.getElementById('searchTerm').value;
-    var output = document.getElementById('output');
-    var url ="https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + searchTerm;
+  randomButton.addEventListener('click', function () {
+    location.href= "https://en.wikipedia.org/wiki/Special:Random";
+  });
 
-    output.innerHTML = "";
+  function searchClick(inputForm){
+    var searchBox = document.getElementById('searchBox').className = "active"
+    var keyword = inputForm.value;
+    var output = document.getElementById('output');
+    var url ="https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + keyword;
+
+    output.innerHTML = ""; //clear output container beforehand
     fetch(url, {
       method: 'GET'
     }).then(function (response) {
@@ -41,7 +47,7 @@
           link.innerHTML = myJson[1][i];
           link.href = myJson[3][i];
           eachOutput.appendChild(link);
-          var desc = document.createElement('li');
+          var desc = document.createElement('p');
           desc.innerHTML = myJson[2][i];
           eachOutput.appendChild(desc);
           output.appendChild(eachOutput);
