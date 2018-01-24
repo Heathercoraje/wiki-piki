@@ -8,6 +8,7 @@
   });
 
   function searchClick(searchTerm){
+    var searchBox = document.getElementById('searchBox').className = "active"
     var searchTerm = document.getElementById('searchTerm').value;
     var url ="https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + searchTerm;
     console.log(url);
@@ -18,11 +19,15 @@
     }).then(function (myJson) {
       var output = document.getElementById('output');
       for (var i = 0; i < myJson[1].length; i++) {
-        var node = document.createElement('li');
-
-        node.appendChild(myJson[3][i]);
-        output.appendChild(node);
-        // output.prepend('<li><a href="${myJson[3][i]}"> + ${myJson[1][i]}</a> + <p>${myJson[2][i]}</p></li>');
+        var eachOutput = document.createElement('div');
+        var link = document.createElement('a');
+        link.innerHTML = myJson[1][i];
+        link.href = myJson[3][i];
+        eachOutput.appendChild(link);
+        var desc = document.createElement('li');
+        desc.innerHTML = myJson[2][i];
+        eachOutput.appendChild(desc);
+        output.appendChild(eachOutput);
       };
       console.log(output);
     }).catch(function (error) {

@@ -14,10 +14,16 @@ body {
   position: relative;
   top:30%;
   text-align: center;
-
   width: 80%;
   margin: 0 auto;
+}
 
+.active{
+  position: relative;
+  top: 5%;
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .title {
