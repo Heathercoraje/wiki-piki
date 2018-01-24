@@ -33,8 +33,13 @@ body {
   margin-bottom: 0.11em;
 }
 
-.form{
-  width: 15em;
+.inputForm{
+  font-size: 1.2em;
+  font-family: 'Roboto Condensed', sans-serif;
+  padding-left: 1em;
+  outline:none;
+  /* max-width: 20em; */
+  /* width: 14em; */
   height: 2em;
   border-radius: 30px;
 }
@@ -53,6 +58,14 @@ body {
   color:#295e89;
 }
 
+/* result part */
+
+
+
+
+
+/* footer part  */
+
 footer{
   font-family: 'Roboto Condensed', sans-serif;
   text-shadow: 3px 3px 5px #103d51;
@@ -64,7 +77,6 @@ footer{
 }
 
 a {
-
   color: white;
   text-decoration: none;
 }

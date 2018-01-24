@@ -10,14 +10,15 @@
   function searchClick(searchTerm){
     var searchBox = document.getElementById('searchBox').className = "active"
     var searchTerm = document.getElementById('searchTerm').value;
+    var output = document.getElementById('output');
     var url ="https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + searchTerm;
-    console.log(url);
+
     fetch(url, {
       method: 'GET'
     }).then(function (response) {
       return response.json();
     }).then(function (myJson) {
-      var output = document.getElementById('output');
+      output.innerHTML = "";
       for (var i = 0; i < myJson[1].length; i++) {
         var eachOutput = document.createElement('div');
         var link = document.createElement('a');
@@ -35,3 +36,14 @@
     });
   }
 })();
+
+
+var inputForm = document.getElementById('searchTerm');
+
+inputForm.addEventListener('input', function() {
+  var inputSize = inputForm.value.length;
+  if (12 < inputSize ) {
+    inputForm.size = inputSize;
+  }
+  return
+});
