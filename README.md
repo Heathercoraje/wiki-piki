@@ -3,7 +3,7 @@ Fun project with wikipedia api
 
 ### Technology: focus on learning 
 + Api call from backend using request
-+ Autocomplete functionality
++ Auto-suggest functionality
 + Utilize more than 2 Api source (reading proficiency on api docs)
 + Code modulization
 
