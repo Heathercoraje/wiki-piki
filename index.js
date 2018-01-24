@@ -23,6 +23,10 @@
     searchClick(inputForm);
   });
 
+  randomButton.addEventListener('click', function () {
+    location.href= "https://en.wikipedia.org/wiki/Special:Random";
+  });
+  
   function searchClick(inputForm){
     var searchBox = document.getElementById('searchBox').className = "active"
     var keyword = inputForm.value;
