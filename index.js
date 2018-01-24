@@ -13,8 +13,9 @@
 
   inputForm.addEventListener('keydown', function() {
     if (event.keyCode == 13) {
-      console.log('enterkey pressed: execute functi on');
-      searchClick();
+      console.log('enterkey pressed: execute function');
+      var keyword = inputForm.value;
+      searchClick(inputForm);
     }
     return
   });
@@ -26,7 +27,7 @@
   randomButton.addEventListener('click', function () {
     location.href= "https://en.wikipedia.org/wiki/Special:Random";
   });
-  
+
   function searchClick(inputForm){
     var searchBox = document.getElementById('searchBox').className = "active"
     var keyword = inputForm.value;
