@@ -34,6 +34,7 @@ body {
 }
 
 .title {
+  text-decoration: none;
   font-size: 5em;
   color: white;
   font-family: 'Berkshire Swash', cursive !important;
