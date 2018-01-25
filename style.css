@@ -76,6 +76,12 @@ button:hover {
 button:focus {
   outline: 0;
 }
+.fa.fa-language {
+  vertical-align: middle;
+  padding: 0.3em;
+  font-size: 2em;
+  color: white;
+}
 
 /* result part */
 

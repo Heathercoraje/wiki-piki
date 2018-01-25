@@ -1,7 +1,7 @@
 (function allInOne() {
   var inputForm = document.getElementById('inputForm');
   var searchButton = document.getElementById('searchButton');
-  var base = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search="
+  var base = "https://es.wikipedia.org/w/api.php?origin=*&action=opensearch&search="
 
   inputForm.addEventListener('input', function () {
     var inputSize = inputForm.value.length;
@@ -53,7 +53,7 @@
     var keyword = inputForm.value;
     var output = document.getElementById('output');
     var url = base + keyword;
-
+console.log(url);
     output.innerHTML = ""; //clear output container beforehand
     fetch(url, {
       method: 'GET'
