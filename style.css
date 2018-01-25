@@ -1,49 +1,50 @@
-*{
+* {
   margin: 0;
   padding: 0;
+  text-decoration: none;
+  list-style: none;
   font-family: 'Roboto Condensed', sans-serif;
 }
 
 html {
-  position: relative;
   height: 100%;
 }
 
 body {
   position: relative;
-  width: 100%;
-  height: 100vh;
-  min-height: 100%;
+  min-height: 94%;
+  padding-bottom: 2%;
   background-color:#1f4563;
 }
 
 .main {
-  position: relative;
-  top:30%;
-  text-align: center;
   width: 80%;
-  margin: 0 auto;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  top:30%;
+  transform: translate(-50%);
+
 }
 
 .active {
-  position: relative;
-  top: 5%;
-  text-align: center;
   width: 80%;
-  margin: 0 auto;
+  text-align: center;
+  margin: 1.5em auto;
 }
 
 .title {
-  text-decoration: none;
-  font-size: 5em;
+  font-size: 2.3em;
   color: white;
   font-family: 'Berkshire Swash', cursive !important;
-  margin-bottom: 0.11em;
+  margin-bottom: 0.5em;
 }
 
 .inputForm {
   border: none;
   outline:none;
+  color:#1e1e1e;
+  font-weight: bold;
   border-radius: 30px;
   height: 2em;
   font-size: 1.2em;
@@ -66,7 +67,7 @@ button {
 }
 
 button:hover {
-  color:#1176c7;
+  color:#439660;
 }
 
 button:focus {
@@ -76,33 +77,41 @@ button:focus {
 /* result part */
 
 .output {
-  color: black;
+  width: 68%;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
   flex-direction: column;
-  position: relative;
-  top: 10%;
 }
+
 .eachOutput {
+  color: #1e1e1e;
+  text-decoration: none;
   background-color: white;
-  margin-bottom: 5px;
-  width: 70%;
-  border: white 2px solid;
+  padding: 0.5em;
+  font-size: 1.1em;
+  border-radius: 0.4em;
+  margin-bottom: 0.5rem;
   text-align: left;
 }
 
+.eachOutput:hover {
+  border-left: 0.5rem solid #439660;
+
+}
 /* footer part  */
 
-footer {
-  /* position: relative; */
+.footer {
+  position: absolute;
   bottom: 0;
   left: 50%;
   transform: translate(-50%);
-  color: white;
+  color:white;
+  padding-top: 0.2em;
+
 }
 
-footer>a {
-  color: white;
+.footer>a {
+  color: #439660;
   text-decoration: none;
 }
 

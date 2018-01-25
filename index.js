@@ -5,7 +5,7 @@
   inputForm.addEventListener('input', function () {
     inputForm.style = "border: 0.15em solid #295e89;"
     var inputSize = inputForm.value.length;
-    if (12 < inputSize ) {
+    if (14 < inputSize ) {
       inputForm.size = inputSize;
     }
     return
@@ -41,13 +41,14 @@
       return response.json();
     }).then(function (myJson) {
         for (var i = 0; i < myJson[1].length; i++) {
-          var eachOutput = document.createElement('div');
+          var eachOutput = document.createElement('a');
+          eachOutput.href = myJson[3][i];
           eachOutput.className = 'eachOutput'
-          var link = document.createElement('a');
-          link.innerHTML = myJson[1][i];
-          link.href = myJson[3][i];
-          eachOutput.appendChild(link);
-          var desc = document.createElement('p');
+          var title = document.createElement('li')
+          title.innerHTML = myJson[1][i];
+          title.style ="font-weight:bold;"
+          eachOutput.appendChild(title);
+          var desc = document.createElement('li');
           desc.innerHTML = myJson[2][i];
           eachOutput.appendChild(desc);
           output.appendChild(eachOutput);
