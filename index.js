@@ -1,7 +1,13 @@
 (function allInOne() {
   var inputForm = document.getElementById('inputForm');
   var searchButton = document.getElementById('searchButton');
-  var base = "https://es.wikipedia.org/w/api.php?origin=*&action=opensearch&search="
+  var languageButton = document.getElementById('languageButton');
+  var base = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search="
+  var languageInput = document.getElementById('languageInput');
+
+  languageButton.addEventListener('click', function (){
+    languageInput.classList.toggle('display');
+  });
 
   inputForm.addEventListener('input', function () {
     var inputSize = inputForm.value.length;
@@ -11,7 +17,7 @@
     (function autoSuggest (value) {
       var suggestionList = document.getElementById('suggestionList')
       var value = inputForm.value;
-      var url = base + value;
+      var url = base.replace('en',languageInput.value) + value;
       fetch(url, {
         method: 'GET'
       }).then(function (response){
@@ -33,7 +39,6 @@
 
   inputForm.addEventListener('keydown', function() {
     if (event.keyCode == 13) {
-      console.log('enterkey pressed: execute function');
       var keyword = inputForm.value;
       searchClick(inputForm);
     }
@@ -52,8 +57,9 @@
     var searchBox = document.getElementById('searchBox').className = "active"
     var keyword = inputForm.value;
     var output = document.getElementById('output');
-    var url = base + keyword;
-console.log(url);
+    var url = base.replace('en',languageInput.value) + keyword;
+    console.log(languageInput.value);
+    console.log(url);
     output.innerHTML = ""; //clear output container beforehand
     fetch(url, {
       method: 'GET'

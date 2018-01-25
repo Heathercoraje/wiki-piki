@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
+    <header>
+    <input size="3" class="languageInput" id="languageInput" list="languages"><i id="languageButton" class="fa fa-language"aria-hidden="true"></i>
+      <datalist class="languages" id="languages">
+        <option>EN</option>
+        <option>KO</option>
+        <option>DE</option>
+        <option>RU</option>
+        <option>FR</option>
+      </datalist>
+    </header>
     <div class="main container" id="searchBox">
       <p class="title"><a class="title" href="Javascript:location.reload(true);">Wiki Piki</a></p>
       <input size="14" contenteditable="true" class="inputForm" id="inputForm" list="suggestionList" autofocus>
@@ -16,7 +26,6 @@
       </button>
       <button id="randomButton" type="button" name="button"><i class="fa fa-question-circle" aria-hidden="true"></i>
       </button>
-      <i class="fa fa-language" aria-hidden="true"></i>
     </div>
     <div class="output" id="output">
     </div>
