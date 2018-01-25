@@ -11,6 +11,3 @@ Click [here](https://wikipiki.surge.sh) to check it out.
 + Utilize more than 2 Api source (reading proficiency on api docs)
 + Code modulization
 
-### Stretch functions 
-+ Api call from backend using request 
-
