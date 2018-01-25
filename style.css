@@ -34,11 +34,10 @@ body {
 }
 
 .title {
-  text-decoration: none;
-  font-size: 5em;
+  font-size: 2.3em;
   color: white;
   font-family: 'Berkshire Swash', cursive !important;
-  margin-bottom: 0.11em;
+  margin-bottom: 0.5em;
 }
 
 .inputForm {

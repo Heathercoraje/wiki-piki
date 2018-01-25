@@ -5,7 +5,7 @@
   inputForm.addEventListener('input', function () {
     inputForm.style = "border: 0.15em solid #295e89;"
     var inputSize = inputForm.value.length;
-    if (12 < inputSize ) {
+    if (14 < inputSize ) {
       inputForm.size = inputSize;
     }
     return
