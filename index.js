@@ -46,6 +46,7 @@
           eachOutput.className = 'eachOutput'
           var title = document.createElement('li')
           title.innerHTML = myJson[1][i];
+          title.style ="font-weight:bold;"
           eachOutput.appendChild(title);
           var desc = document.createElement('li');
           desc.innerHTML = myJson[2][i];

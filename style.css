@@ -43,6 +43,8 @@ body {
 .inputForm {
   border: none;
   outline:none;
+  color:#1e1e1e;
+  font-weight: bold;
   border-radius: 30px;
   height: 2em;
   font-size: 1.2em;
@@ -77,13 +79,12 @@ button:focus {
 .output {
   width: 68%;
   margin: 0 auto;
-  color: black;
   display: flex;
   flex-direction: column;
 }
 
 .eachOutput {
-  color: black;
+  color: #1e1e1e;
   text-decoration: none;
   background-color: white;
   padding: 0.5em;
