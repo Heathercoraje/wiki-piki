@@ -1,5 +1,7 @@
 # wiki-piki
-Fun project with wikipedia api 
+
+Fun project with wikipedia api.
+Click [here](https://wikipiki.surge.sh) to check it out. 
 
 ![img](https://github.com/Heathercoraje/wiki-piki/blob/master/wikipiki_demo.png?raw=true)
 
