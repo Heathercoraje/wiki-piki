@@ -56,6 +56,9 @@ body {
   border: 0.15em solid #295e89;
 }
 
+.inputForm:focus {
+  border: 0.15em solid #295e89;
+}
 button {
   vertical-align: middle;
   background: none;

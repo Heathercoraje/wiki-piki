@@ -1,15 +1,35 @@
 (function allInOne() {
   var inputForm = document.getElementById('inputForm');
   var searchButton = document.getElementById('searchButton');
+  var base = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search="
 
   inputForm.addEventListener('input', function () {
-    inputForm.style = "border: 0.15em solid #295e89;"
     var inputSize = inputForm.value.length;
     if (14 < inputSize ) {
       inputForm.size = inputSize;
     }
-    return
+    (function autoSuggest (value) {
+      var suggestionList = document.getElementById('suggestionList')
+      var value = inputForm.value;
+      var url = base + value;
+      fetch(url, {
+        method: 'GET'
+      }).then(function (response){
+        return response.json();
+      }).then(function (myJson){
+        var wordList = myJson[1];
+        suggestionList.innerHTML= "";
+        wordList.forEach(function (item) {
+          var option = document.createElement('option');
+          option.value = item;
+          suggestionList.appendChild(option);
+        });
+      }).catch(function (error) {
+        console.log(error);
+      });
+    })();
   });
+
 
   inputForm.addEventListener('keydown', function() {
     if (event.keyCode == 13) {
@@ -32,7 +52,7 @@
     var searchBox = document.getElementById('searchBox').className = "active"
     var keyword = inputForm.value;
     var output = document.getElementById('output');
-    var url ="https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search=" + keyword;
+    var url = base + keyword;
 
     output.innerHTML = ""; //clear output container beforehand
     fetch(url, {
