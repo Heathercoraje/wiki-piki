@@ -2,27 +2,51 @@
   var inputForm = document.getElementById('inputForm');
   var searchButton = document.getElementById('searchButton');
   var languageButton = document.getElementById('languageButton');
-  var base = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search="
   var languageInput = document.getElementById('languageInput');
+  var langLinks = "https://en.wikipedia.org/w/api.php?action=query&format=json&titles=Cloud&prop=langlinks&lllimit=500&origin=*"
+  var base = "https://en.wikipedia.org/w/api.php?origin=*&action=opensearch&search="
+  var keyword;
 
-  languageButton.addEventListener('click', function (){
+  // generate lang options once loaded
+  (function fetchLangs () {
+    fetch(langLinks, {
+      method: 'GET'
+    }).then(function (response) {
+      return response.json();
+    }).then(function (myJson) {
+      var languagesList = document.getElementById('languagesList');
+      var langList = myJson.query.pages["47515"].langlinks;
+      langList.forEach(function (item) {
+        var option = document.createElement('option');
+        option.value = item["lang"];
+        languagesList.appendChild(option);
+      });
+    }).catch(function (error) {
+      console.log(error);
+    });
+  })();
+
+// language icon toggles input display setting
+  languageButton.addEventListener('click', function () {
     languageInput.classList.toggle('display');
   });
 
+// automatically adjust input field size if it becomes bigger than 14
   inputForm.addEventListener('input', function () {
     var inputSize = inputForm.value.length;
     if (14 < inputSize ) {
       inputForm.size = inputSize;
     }
-    (function autoSuggest (value) {
+    //auto-suggest keywords
+    (function autoSuggest () {
       var suggestionList = document.getElementById('suggestionList')
       var value = inputForm.value;
-      var url = base.replace('en',languageInput.value) + value;
+      var url = base.replace('en', languageInput.value) + value;
       fetch(url, {
         method: 'GET'
-      }).then(function (response){
+      }).then(function (response) {
         return response.json();
-      }).then(function (myJson){
+      }).then(function (myJson) {
         var wordList = myJson[1];
         suggestionList.innerHTML= "";
         wordList.forEach(function (item) {
@@ -36,30 +60,30 @@
     })();
   });
 
-
+  // when press enter instead of click searchButton, execute search function
   inputForm.addEventListener('keydown', function() {
     if (event.keyCode == 13) {
-      var keyword = inputForm.value;
-      searchClick(inputForm);
+      keyword = inputForm.value;
+      searchClick(keyword);
     }
     return
   });
 
-  searchButton.addEventListener('click', function () {
-    searchClick(inputForm);
-  });
-
+  // take user to a random article when clicking questionButton
   randomButton.addEventListener('click', function () {
     location.href= "https://en.wikipedia.org/wiki/Special:Random";
   });
 
-  function searchClick(inputForm){
+  // core search function below
+  searchButton.addEventListener('click', function () {
+    keyword = inputForm.value;
+    searchClick(keyword);
+  });
+  function searchClick (keyword) {
     var searchBox = document.getElementById('searchBox').className = "active"
-    var keyword = inputForm.value;
     var output = document.getElementById('output');
-    var url = base.replace('en',languageInput.value) + keyword;
-    console.log(languageInput.value);
-    console.log(url);
+    var url = base.replace('en', languageInput.value) + keyword;
+
     output.innerHTML = ""; //clear output container beforehand
     fetch(url, {
       method: 'GET'
