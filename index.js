@@ -1,6 +1,7 @@
 (function allInOne() {
   var inputForm = document.getElementById('inputForm');
   var searchButton = document.getElementById('searchButton');
+  var searchBox = document.getElementById('searchBox');
   var languageButton = document.getElementById('languageButton');
   var languageInput = document.getElementById('languageInput');
   var langLinks = "https://en.wikipedia.org/w/api.php?action=query&format=json&titles=Cloud&prop=langlinks&lllimit=500&origin=*"
@@ -79,21 +80,27 @@
     keyword = inputForm.value;
     searchClick(keyword);
   });
+
   function searchClick (keyword) {
-    var searchBox = document.getElementById('searchBox').className = "active"
+    var searchBox = document.getElementById('searchBox');
     var output = document.getElementById('output');
-    console.log(languageInput.value);
     var url = (languageInput.value) ? base.replace('en', languageInput.value) + keyword : base + keyword;
 
-    output.innerHTML = ""; //clear output container beforehand
-    fetch(url, {
-      method: 'GET'
-    }).then(function (response) {
-      return response.json();
-    }).then(function (myJson) {
+    if (!keyword) {
+      alert("Enter a search term!")
+    }
+    else {
+      searchBox.className = "active"
+      output.innerHTML = ""; //clear output container beforehand
+      fetch(url, {
+        method: 'GET'
+      }).then(function (response) {
+        return response.json();
+      }).then(function (myJson) {
         for (var i = 0; i < myJson[1].length; i++) {
           var eachOutput = document.createElement('a');
           eachOutput.href = myJson[3][i];
+          eachOutput.target ="_blank"
           eachOutput.className = 'eachOutput'
           var title = document.createElement('li')
           title.innerHTML = myJson[1][i];
@@ -104,8 +111,9 @@
           eachOutput.appendChild(desc);
           output.appendChild(eachOutput);
         };
-    }).catch(function (error) {
-      console.log(error);
-    });
+      }).catch(function (error) {
+        console.log(error);
+      });
+    }
   }
 })();
