@@ -41,7 +41,7 @@
     (function autoSuggest () {
       var suggestionList = document.getElementById('suggestionList')
       var value = inputForm.value;
-      var url = base.replace('en', languageInput.value) + value;
+      var url = (languageInput.value) ? base.replace('en', languageInput.value) + value : base + value;
       fetch(url, {
         method: 'GET'
       }).then(function (response) {
@@ -82,7 +82,8 @@
   function searchClick (keyword) {
     var searchBox = document.getElementById('searchBox').className = "active"
     var output = document.getElementById('output');
-    var url = base.replace('en', languageInput.value) + keyword;
+    console.log(languageInput.value);
+    var url = (languageInput.value) ? base.replace('en', languageInput.value) + keyword : base + keyword;
 
     output.innerHTML = ""; //clear output container beforehand
     fetch(url, {
