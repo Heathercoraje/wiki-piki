@@ -14,5 +14,5 @@ Click [here](https://wikipiki.surge.sh) to check it out.
 ### Focus of learning
 + Auto-suggest functionality
 + Drop-down menu for switching languages
-+ Utilize more than 2 Api call
++ Utilize more than 2 Api calls
 + Code modulization (IIFE)
