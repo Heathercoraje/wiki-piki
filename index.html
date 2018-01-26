@@ -9,18 +9,13 @@
   </head>
   <body>
     <header>
-    <input size="3" class="languageInput" id="languageInput" list="languages"><i id="languageButton" class="fa fa-language"aria-hidden="true"></i>
-      <datalist class="languages" id="languages">
-        <option>EN</option>
-        <option>KO</option>
-        <option>DE</option>
-        <option>RU</option>
-        <option>FR</option>
+    <input size="3" class="languageInput" id="languageInput" list="languagesList"><i id="languageButton" class="fa fa-language"aria-hidden="true"></i>
+      <datalist class="languages" id="languagesList">
       </datalist>
     </header>
     <div class="main container" id="searchBox">
       <p class="title"><a class="title" href="Javascript:location.reload(true);">Wiki Piki</a></p>
-      <input size="14" contenteditable="true" class="inputForm" id="inputForm" list="suggestionList" autofocus>
+      <input size="14" contenteditable="true" class="inputForm" id="inputForm" list="suggestionList" autofocus required>
       <datalist id="suggestionList"></datalist>
       <button id="searchButton" type="button" name="button"><i class="fa fa-search" aria-hidden="true"></i>
       </button>
@@ -29,7 +24,7 @@
     </div>
     <div class="output" id="output">
     </div>
-    <div class="footer">made by  <a href="https://github.com/heathercoraje">heathercoraje</a> with <img src="./broken-heart.svg" alt="broken heart"> <i class="fa fa-tint" aria-hidden="true"></i>
+    <div class="footer">made by  <a href="https://github.com/heathercoraje" target="_blank">heathercoraje</a> with <img src="./broken-heart.svg" alt="broken heart"><i class="fa fa-tint" aria-hidden="true"></i>
     </div>
 <script src="index.js" type="text/javascript"></script>
   </body>

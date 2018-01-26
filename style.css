@@ -1,3 +1,4 @@
+/* basic setting  */
 * {
   margin: 0;
   padding: 0;
@@ -17,10 +18,19 @@ body {
   background-color:#1f4563;
 }
 
+/* header */
 header {
   padding: 0.5em;
   display: flex;
   justify-content: flex-end;
+}
+
+.fa.fa-language {
+  cursor: pointer;
+  vertical-align: middle;
+  padding: 0.3em;
+  font-size: 2em;
+  color: white;
 }
 
 .languageInput {
@@ -34,6 +44,7 @@ header {
   display: block;
 }
 
+/* main container */
 .main {
   width: 80%;
   text-align: center;
@@ -41,13 +52,12 @@ header {
   left: 50%;
   top:30%;
   transform: translate(-50%);
-
 }
 
 .active {
   width: 80%;
   text-align: center;
-  margin: 1.5em auto;
+  margin: 1em auto;
 }
 
 .title {
@@ -61,21 +71,22 @@ header {
   border: none;
   outline:none;
   color:#1e1e1e;
-  font-weight: bold;
-  border-radius: 30px;
-  height: 2em;
-  font-size: 1.2em;
-  font-family: 'Roboto Condensed', sans-serif;
-  padding-left: 1em;
+  font-weight:bold;
+  border-radius:30px;
+  height:2em;
+  font-size:1.2em;
+  font-family:'Roboto Condensed', sans-serif;
+  padding-left:1em;
 }
 
 .inputForm:hover {
-  border: 0.15em solid #295e89;
+  border:0.15em solid #295e89;
 }
 
 .inputForm:focus {
-  border: 0.15em solid #295e89;
+  border:0.15em solid #295e89;
 }
+
 button {
   vertical-align: middle;
   background: none;
@@ -93,14 +104,9 @@ button:hover {
 button:focus {
   outline: 0;
 }
-.fa.fa-language {
-  vertical-align: middle;
-  padding: 0.3em;
-  font-size: 2em;
-  color: white;
-}
 
-/* result part */
+
+/* output  */
 
 .output {
   width: 68%;
@@ -124,7 +130,8 @@ button:focus {
   border-left: 0.5rem solid #439660;
 
 }
-/* footer part  */
+
+/* footer  */
 
 .footer {
   position: absolute;
